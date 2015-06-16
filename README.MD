@@ -1,5 +1,5 @@
 # Structure
-Artisan command to creat the Basic Application structure.
+Laravel artisan command to create the basic Application Structure.
 
 
 ### Install 
