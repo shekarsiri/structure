@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Structure\\": "src/Structure"
+            "ShekarSiri\\Structure\\": "src/Structure"
         }
     }
 
