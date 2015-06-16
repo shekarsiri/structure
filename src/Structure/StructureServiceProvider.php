@@ -1,8 +1,8 @@
-<?php namespace Structure;
+<?php namespace ShekarSiri\Structure;
 
 
 use Illuminate\Support\ServiceProvider;
-use Structure\Console\Commands\StructureCommand;
+use ShekarSiri\Structure\Console\Commands\StructureCommand;
 
 class StructureServiceProvider extends ServiceProvider
 {

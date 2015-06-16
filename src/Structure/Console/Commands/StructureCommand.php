@@ -1,4 +1,4 @@
-<?php namespace Structure\Console\Commands;
+<?php namespace ShekarSiri\Structure\Console\Commands;
 
 
 use Illuminate\Console\Command;
