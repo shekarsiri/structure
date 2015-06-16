@@ -1,9 +1,11 @@
 {
     "name": "shekarsiri/structure",
-    "description": "Structure command for Laravel 5",
+    "description": "Laravel artisan command to create the basic application structure.",
     "keywords": [
         "structure",
-        "laravel 5"
+        "laravel 5",
+        "skeleton",
+        "repository pattern"
     ],
     "license": "MIT",
     "authors": [

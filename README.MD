@@ -5,7 +5,7 @@ Laravel artisan command to create the basic Application Structure.
 ### Install 
 
 ```
-composer require sshekarsiri/strucutre:dev-master
+composer require shekarsiri/strucutre
 ```
 
 ### Update the config file (config/app.php)
