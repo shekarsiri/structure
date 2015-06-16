@@ -1,0 +1,27 @@
+{
+    "name": "shekarsiri/structure",
+    "description": "Structure command for Laravel 5",
+    "keywords": [
+        "structure",
+        "laravel 5"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "shekarsiri",
+            "email": "sshekarsiri@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": "^5.1",
+        "illuminate/console": "^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Structure\\": "src/Structure"
+        }
+    }
+
+}
