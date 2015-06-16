@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Filesystem\Filesystem;
 use ShekarSiri\Structure\Console\Commands\StructureCommand;
 
 class StructureServiceProvider extends ServiceProvider
@@ -21,8 +22,8 @@ class StructureServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['command.structure:make'] = $this->app->share(function () {
-            return new StructureCommand();
+        $this->app['command.structure:make'] = $this->app->share(function ($app) {
+            return new StructureCommand($app->make(Filesystem::class));
         });
 
         $this->commands('command.structure:make');

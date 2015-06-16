@@ -1,0 +1,21 @@
+<?php namespace DummyNamespace;
+
+use Illuminate\Contracts\Bus\SelfHandling;
+use App\Jobs\Job;
+
+/**
+ * Class DummyClass
+ * @package DummyNamespace
+ */
+class DummyClass extends Job implements SelfHandling {
+
+    private $data;
+
+    function __construct($title) {
+        $this->data = compact('title');
+    }
+
+    public function handle() {
+
+    }
+}
