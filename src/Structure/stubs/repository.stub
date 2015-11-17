@@ -1,12 +1,14 @@
 <?php namespace DummyNamespace;
 
-
+use ShekarSiri\BaseRepo\Crudable;
+use ShekarSiri\BaseRepo\Pagination;
+use ShekarSiri\BaseRepo\Repo;
 
 /**
  * Interface DummyClass
  * @package DummyNamespace
  */
-interface DummyClass
+interface DummyClass extends Crudable, Pagination, Repo
 {
 
 }

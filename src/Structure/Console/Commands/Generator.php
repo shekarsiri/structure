@@ -6,6 +6,7 @@ namespace ShekarSiri\Structure\Console\Commands;
 
 trait Generator
 {
+
     private function proceed($repo, $path)
     {
 
@@ -15,8 +16,10 @@ trait Generator
         $a = explode('/', $repo);
         $a = array_pop($a);
 
+        $this->repo = $repo;
+
         //ServiceProvider
-        $this->files->put($path . $repo . '/' . $a . 'ServiceProvider.php', $this->buildClass($repo . '/' . $a . 'ServiceProvider', 'provider'));
+        $this->files->put($path . $repo . '/' . $a . 'ServiceProvider.php', $this->buildClassNew('service-provider'));
 
         //Model
         $this->files->put($path . $repo . '/' . $a . '.php', $this->buildClass($repo . '/' . $a, 'model'));
@@ -29,7 +32,7 @@ trait Generator
 
         //Repositories
         $this->files->put($path . $repo . '/Repositories/' . $a . 'Repository.php', $this->buildClass($repo . '/Repositories/' . $a . 'Repository', 'repository'));
-        $this->files->put($path . $repo . '/Repositories/' . $a . 'RepositoryEloquent.php', $this->buildClass($repo . '/Repositories/' . $a . 'RepositoryEloquent', 'repository_eloquent'));
+        $this->files->put($path . $repo . '/Repositories/' . $a . 'RepositoryEloquent.php', $this->buildClass($repo . '/Repositories/' . $a . 'Repository', 'repository_eloquent'));
 
 
         //Jobs
@@ -82,6 +85,36 @@ trait Generator
     }
 
     /**
+     * Build the class with the given name.
+     * @param $type
+     * @return mixed|string
+     */
+    protected function buildClassNew($type)
+    {
+        $a = explode('/', $this->repo);
+        $a = array_pop($a);
+
+        $stub = '';
+
+        switch ($type) {
+            case 'service-provider':
+                //Get the STUB
+                $stub = $this->files->get($this->getStub('provider'));
+
+                $this->replaceNamespace($stub, $this->repo . '/');
+
+                $stub = str_replace('DummyClass', $a . 'ServiceProvider', $stub);
+                $stub = str_replace('DummyModel', $a, $stub);
+                $stub = str_replace('DummyUse', $this->getNamespace($this->repo . '/'), $stub);
+                $stub = str_replace('DummyRepository', $a . 'Repository', $stub);
+
+                break;
+        }
+
+        return $stub;
+    }
+
+    /**
      * Get the stub file for the generator.
      *
      * @return string
@@ -107,6 +140,7 @@ trait Generator
         return str_replace('DummyClass', $a, $stub);
     }
 
+
     /**
      * Replace the namespace for the given stub.
      *
@@ -123,6 +157,7 @@ trait Generator
 
         return $this;
     }
+
 
     /**
      * Get the full namespace name for a given class.

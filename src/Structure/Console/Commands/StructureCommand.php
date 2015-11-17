@@ -9,6 +9,7 @@ class StructureCommand extends Command
 {
     use Generator;
 
+    private $repo;
     /**
      * The console command name.
      *
@@ -49,11 +50,14 @@ class StructureCommand extends Command
         $repo = $this->option('namespace');
         $path = $this->laravel->basePath() . '/';
 
+
         if (!$this->files->isDirectory($path . $repo)) {
             $this->proceed($repo, $path);
             $this->info('Created the structure successfully under ' . $path . $repo);
         } else {
-            $this->info('Directory already exists, terminating the command!');
+            //$this->info('Directory already exists, terminating the command!');
+            $this->proceed($repo, $path);
+            $this->info('Created the structure successfully under ' . $path . $repo);
         }
 
     }

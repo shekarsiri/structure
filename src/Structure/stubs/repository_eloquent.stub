@@ -1,13 +1,16 @@
 <?php namespace DummyNamespace;
 
-
+use ShekarSiri\BaseRepo\CrudableTrait;
+use ShekarSiri\BaseRepo\PaginationTrait;
+use ShekarSiri\BaseRepo\RepoTrait;
 
 /**
  * Class DummyClass
  * @package DummyNamespace
  */
-class DummyClass
+class DummyClassEloquent implements DummyClass
 {
+    use CrudableTrait, PaginationTrait, RepoTrait;
 
     function __construct($model)
     {

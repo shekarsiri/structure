@@ -1,6 +1,6 @@
 <?php namespace DummyNamespace;
 
-use Illuminate\Foundation\Http\Request;
+use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class DummyClass

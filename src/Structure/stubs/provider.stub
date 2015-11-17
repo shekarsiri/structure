@@ -1,6 +1,8 @@
 <?php namespace DummyNamespace;
 
 use Illuminate\Support\ServiceProvider;
+use DummyUse\Repositories\DummyRepository;
+use DummyUse\Repositories\DummyRepositoryEloquent;
 
 /**
  * Class DummyClass
@@ -25,6 +27,8 @@ class DummyClass extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(DummyRepository::class, function ($app) {
+            return new DummyRepositoryEloquent(new DummyModel());
+        });
     }
 }
