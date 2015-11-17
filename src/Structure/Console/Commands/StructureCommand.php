@@ -55,9 +55,7 @@ class StructureCommand extends Command
             $this->proceed($repo, $path);
             $this->info('Created the structure successfully under ' . $path . $repo);
         } else {
-            //$this->info('Directory already exists, terminating the command!');
-            $this->proceed($repo, $path);
-            $this->info('Created the structure successfully under ' . $path . $repo);
+            $this->info('Directory already exists, terminating the command!');
         }
 
     }
