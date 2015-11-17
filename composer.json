@@ -19,7 +19,8 @@
         "php": ">=5.5.9",
         "illuminate/support": "^5.1",
         "illuminate/console": "^5.1",
-        "illuminate/filesystem": "^5.1"
+        "illuminate/filesystem": "^5.1",
+        "shekarsiri/baserepo": "dev-master"
     },
     "autoload": {
         "psr-4": {
