@@ -3,6 +3,7 @@
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
 class StructureCommand extends Command
@@ -10,6 +11,7 @@ class StructureCommand extends Command
     use Generator;
 
     private $repo;
+
     /**
      * The console command name.
      *
@@ -47,9 +49,8 @@ class StructureCommand extends Command
      */
     public function handle()
     {
-        $repo = $this->option('namespace');
+        $repo = $this->argument('namespace');
         $path = $this->laravel->basePath() . '/';
-
 
         if (!$this->files->isDirectory($path . $repo)) {
             $this->proceed($repo, $path);
@@ -62,14 +63,14 @@ class StructureCommand extends Command
 
 
     /**
-     * Get the console command options.
+     * Get the console command arguments.
      *
      * @return array
      */
-    protected function getOptions()
+    protected function getArguments()
     {
         return [
-            ['namespace', null, InputOption::VALUE_REQUIRED, 'The queue to listen on'],
+            ['namespace', InputArgument::REQUIRED, 'The name of the class'],
         ];
     }
 
