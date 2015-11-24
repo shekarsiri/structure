@@ -19,8 +19,8 @@ composer require shekarsiri/strucutre
 
 ### Run the command
 ```
-php artisan structure:make --namespace=SomeApp/Post
-php artisan structure:make --namespace=SomeApp/Product
+php artisan structure:make SomeApp/Post
+php artisan structure:make SomeApp/Product
 ```
 
 
