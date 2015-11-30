@@ -1,10 +1,10 @@
-<?php namespace ShekarSiri\Structure\Console\Commands;
+<?php
 
+namespace ShekarSiri\Structure\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 
 class StructureCommand extends Command
 {
@@ -17,23 +17,23 @@ class StructureCommand extends Command
      *
      * @var string
      */
-    protected $name = "structure:make";
+    protected $name = 'structure:make';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = "Makes the application structure";
+    protected $description = 'Makes the application structure';
 
     /**
      * @var Filesystem
      */
     private $files;
 
-
     /**
      * Create a new command instance.
+     *
      * @param Filesystem $files
      */
     public function __construct(Filesystem $files)
@@ -50,17 +50,15 @@ class StructureCommand extends Command
     public function handle()
     {
         $repo = $this->argument('namespace');
-        $path = $this->laravel->basePath() . '/';
+        $path = $this->laravel->basePath().'/';
 
-        if (!$this->files->isDirectory($path . $repo)) {
+        if (!$this->files->isDirectory($path.$repo)) {
             $this->proceed($repo, $path);
-            $this->info('Created the structure successfully under ' . $path . $repo);
+            $this->info('Created the structure successfully under '.$path.$repo);
         } else {
             $this->info('Directory already exists, terminating the command!');
         }
-
     }
-
 
     /**
      * Get the console command arguments.
@@ -73,6 +71,4 @@ class StructureCommand extends Command
             ['namespace', InputArgument::REQUIRED, 'The name of the class'],
         ];
     }
-
-
 }

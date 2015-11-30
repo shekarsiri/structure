@@ -1,13 +1,13 @@
-<?php namespace ShekarSiri\Structure;
+<?php
 
+namespace ShekarSiri\Structure;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\ServiceProvider;
 use ShekarSiri\Structure\Console\Commands\StructureCommand;
 
 class StructureServiceProvider extends ServiceProvider
 {
-
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -37,9 +37,7 @@ class StructureServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'command.structure:make'
+            'command.structure:make',
         ];
     }
-
-
 }
